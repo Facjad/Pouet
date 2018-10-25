@@ -1,10 +1,7 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define MAX_WORD_LENGTH 20
 #define MAX_NUM_WORDS   4000
@@ -29,7 +26,7 @@ struct file_elem {
 struct cell* create_new_cell(struct pool *pool, char word[], int noccs, struct cell* next) ;
 struct file_elem* init_file() ;
 bool file_vide(struct file_elem* file) ;
-struct file_elem* enfiler(struct file_elem* file, struct cell* elem) ;
-struct cell* defiler(struct file_elem** file) ;
+void enfiler(struct file_elem **file, struct cell* elem) ;
+struct cell* defiler(struct file_elem **file) ;
 
 #endif

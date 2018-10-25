@@ -1,5 +1,9 @@
 #include "base_elements.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 // Given a pool, and the constituents of a cell,
 // return a pointer to a valid cell with the same constituents,
 // or NULL if all the memory has been allocated.
@@ -28,12 +32,12 @@ bool file_vide(struct file_elem* file) {
   }
 }
 
-// retourne l'adresse de la nouvelle file, dans laquelle elem a été ajouté
-struct file_elem* enfiler(struct file_elem* file, struct cell* elem) {
+// modifie l'adresse de la file
+void enfiler(struct file_elem** file, struct cell* elem) {
   struct file_elem* nouv = malloc(sizeof(struct file_elem)) ;
   nouv->content = elem ;
-  nouv->next = file ;
-  return nouv ;
+  nouv->next = *file ;
+  *file = nouv ;
 }
 
 // retourne l'adresse de la cellule que l'on vient d'enlever

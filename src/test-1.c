@@ -1,4 +1,5 @@
 #include "base_elements.h"
+#include <stdio.h>
 
 int main(void){
   struct pool pool = { {}, pool.m }; // Trick to initialize the pool statically
@@ -15,7 +16,7 @@ int main(void){
   }
     //  printf("NULL : %p, %p\n", (void*)file->content, (void*)file->next) ;
   cell = create_new_cell(&pool, w, 0, NULL) ;
-  file = enfiler(file, cell) ;
+  enfiler(&file, cell) ;
   if (file_vide(file)) {
     printf("Noo !\n") ;
   } else {
